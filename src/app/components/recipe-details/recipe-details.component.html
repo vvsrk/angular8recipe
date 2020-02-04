@@ -1,0 +1,46 @@
+<div>
+  <a (click)="goBack()" style='cursor: pointer;margin-left: 30px;color: cornflowerblue'>Go Back</a>
+</div>
+
+<div *ngIf="loadError" class="alert alert-danger" role="alert">
+  {{errorText}} - <a [routerLink]="['/recipes']">Back to recipes</a>
+</div>
+
+<div *ngIf="recipeDetails && !loadError">
+  <div class="card-header">
+    <h3 class="card-title">{{ recipeDetails?.title }}</h3>
+  </div>
+  <div class="card-body">
+    <!-- *ngIf="recipe.coverPhoto"-->
+    <div class="float-right">
+      <img src="{{recipeDetails?.coverPhoto ? recipeDetails?.coverPhoto : '/assets/no_image.png'}}" style="width: 250px; height: 250px">
+    </div>
+    <p>{{ recipeDetails?.description }}</p>
+    <div>
+      <div class="data-title">Preparation Time:</div>
+      <div>{{ recipeDetails?.preparationTime }}</div>
+      <div class="data-title">Feeds how many:</div>
+      <div>{{ recipeDetails?.feedForMany }}</div>
+    </div>
+
+    <div id="ingredients">
+      <h4> Ingredients </h4>
+      <ul>
+        <li *ngFor="let ingredient of recipeDetails?.ingredients;let i = index">
+          {{i}} - {{ingredient.ingredient}} ({{ingredient.measure}})
+        </li>
+      </ul>
+    </div>
+
+
+    <div id="instructions">
+      <h4> Instructions </h4>
+      <ul>
+        <li *ngFor="let instruction of recipeDetails?.instructions">
+          {{instruction.instruction}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

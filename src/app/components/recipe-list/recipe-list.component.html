@@ -1,0 +1,29 @@
+<div *ngIf="recipesLoaded">
+  <div style="float: right">
+    <input type="button" value="Toggle Dark BG" (click)="toggleBG()" style="margin-right: 5px"/>
+    <input type="button" value="Toggle Font size" (click)="toggleFont()">
+  </div>
+  <!--
+    <h3 class="{{useDarkBackGround ? 'darkbg' : ''}}"> These are our Recipes</h3>
+    <h3 [class.darkbg]="useDarkBackGround" [style.font-size]="fontSize"> These are our Recipes</h3>
+  -->
+  <!-- another way for font size -->
+  <h3 [class.darkbg]="useDarkBackGround" [ngStyle]="currentStyles"> These are our Recipes</h3>
+  <div style="width: 100%;float: right;">
+    <button type="button" class="btn btn-info" style="float: right;margin-right: 50px" (click)="addNewRecipe()">Add new Recipe</button>
+  </div>
+
+  <div *ngFor="let recipe of recipes" class="recipe card" style="max-width: 500px;">
+    <app-recipe-summary [recipeSummary]="recipe" (zoomIn)="displayZoomInRecipe(recipe)" (userClick)="userClickedOnRecipe($event)"></app-recipe-summary>
+  </div>
+  <!--<app-recipe-summary *ngFor="let recipe of recipes" class="recipe card" style="max-width: 500px;" [recipeSummary]="recipe"></app-recipe-summary>-->
+</div>
+<div *ngIf="!recipesLoaded" class="text-xl-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="recipesLoaded && (!recipes || !recipes.length)" class="text-xl-center">
+  <p style="alignment: center">There are no recipes</p>
+</div>

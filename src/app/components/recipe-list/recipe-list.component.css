@@ -1,0 +1,16 @@
+.recipe {
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+}
+
+@media (min-width: 800px) {
+  .recipe {
+    width: 500px;
+    margin: 10px 10px;
+  }
+}
+
+.darkbg {
+  background-color: #aaaaaa;
+}

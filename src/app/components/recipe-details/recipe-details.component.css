@@ -1,0 +1,35 @@
+div.data-title {
+  float: left;
+  font-weight: bold;
+  width: 250px;
+}
+
+div#ingredients li, div#instructions li {
+  padding: 2px 0;
+}
+
+div#ingredients {
+  border: 5px solid #cccccc;
+  background-color: #eeeeee;
+  float: left;
+  max-width: 250px;
+  margin: 20px 0;
+  padding: 5px;
+}
+
+div#instructions {
+  float: left;
+  max-width: 400px;
+  margin: 20px 0;
+  padding: 5px 10px;
+}
+
+@media (min-width: 1050px) {
+  div.cover-photo-holder img {
+    float: right;
+  }
+
+  div#instructions, div#ingredients {
+    min-height: 500px;
+  }
+}

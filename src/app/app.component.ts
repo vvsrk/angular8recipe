@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Recipe} from './model/recipe';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular8recipe';
+  recipes: Recipe[];
+
+  constructor() {
+  }
 }

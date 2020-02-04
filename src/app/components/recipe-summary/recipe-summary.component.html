@@ -1,0 +1,18 @@
+
+<div class="card-header">
+  <h3 class="card-title">{{ recipeSummary.title }}</h3>
+</div>
+<div class="card-body" (click)="userSelectedRecipe()">
+  <!-- *ngIf="recipe.coverPhoto"-->
+  <div class="float-right">
+    <img src="{{recipeSummary.coverPhoto ? recipeSummary.coverPhoto : '/assets/no_image.png'}}" style="width: 150px; height: 150px">
+  </div>
+  <p>{{ recipeSummary.description }}</p>
+  <div class="data-title">
+    Preparation Time: {{recipeSummary.preparationTime}}
+  </div>
+  <div style="clear: both;font-size: 75%;cursor: pointer;padding: 5px" (click)="emitSelectedRecipe()">
+    zoom
+  </div>
+</div>
+
